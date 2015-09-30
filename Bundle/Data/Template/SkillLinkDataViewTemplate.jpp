@@ -1,0 +1,20 @@
+/**************************************************************
+*     ####         #                               #          * Jobuzzle - Copyright All rights reserved
+*     ####         #                               #          *
+*       ##  #####  ######  #     # ####### ####### #  #####   * @Author: revers
+*       ## #     # #     # #     #      #       #  # #     #  *
+*       ## #     # #     # #     #     #       #   # #     #  * @Date:   2015-09-30 13:08:51
+*       ## #     # #     # #     #    #       #    # #     #  *
+*       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
+*  ####### #     # #     # #     #  #       #      # #        *
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-09-30 13:11:01
+**************************************************************/
+
+class SkillLinkDataViewTemplate extends LinkDataViewTemplate {
+
+	public _serviceName = 'skilllink_data_main_service';
+	public _viewClassName = 'SkillLinkDataTemplateViewView';
+	public _type = 'SkillLink';
+	public _route = 'skilllink';
+
+}
