@@ -1,0 +1,23 @@
+/**************************************************************
+*     ####         #                               #          * Jobuzzle - Copyright All rights reserved
+*     ####         #                               #          *
+*       ##  #####  ######  #     # ####### ####### #  #####   * @Author: revers
+*       ## #     # #     # #     #      #       #  # #     #  *
+*       ## #     # #     # #     #     #       #   # #     #  * @Date:   2015-09-30 13:05:50
+*       ## #     # #     # #     #    #       #    # #     #  *
+*       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
+*  ####### #     # #     # #     #  #       #      # #        *
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-09-30 13:06:50
+**************************************************************/
+
+class SkillLinkDataMainRoute extends LinkDataMainRoute {
+
+	name = 'skilllink';
+
+	baseName = 'Skilllink';
+	baseRoute = '{skilllinks}';
+	baseController = 'skilllink_data_main_controller';
+
+	paramName = 'skilllink_id';
+
+}

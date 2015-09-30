@@ -1,0 +1,51 @@
+/**************************************************************
+*     ####         #                               #          * Jobuzzle - Copyright All rights reserved
+*     ####         #                               #          *
+*       ##  #####  ######  #     # ####### ####### #  #####   * @Author: revers
+*       ## #     # #     # #     #      #       #  # #     #  *
+*       ## #     # #     # #     #     #       #   # #     #  * @Date:   2015-09-30 13:01:04
+*       ## #     # #     # #     #    #       #    # #     #  *
+*       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
+*  ####### #     # #     # #     #  #       #      # #        *
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-09-30 13:02:29
+**************************************************************/
+
+class SkillLinkDataMainEntity extends LinkDataMainEntity {
+
+	public _type = 'SkillLink';
+	public _templateTimeline = 'skilllink_data_timeline_template';
+	public _templateMiniature = 'skilllink_data_miniature_template';
+
+	initialize : function () {
+		_super();
+
+		this['_level'] = undefined;
+	}
+
+	hydrate : function (datas) {
+		_super(datas);
+
+		if (datas['level'])
+			this.setLevel(datas['level']);
+	}
+
+	search : function (params) {
+		var reg = new RegExp(params, 'i');
+
+		return (
+			_super()
+			|| (this.getLevel() != undefined && reg.test(this.getLevel()))
+		);
+	}
+
+	public getLevel : function () {
+		return this['_level'];
+	}
+
+	public setLevel : function (level) {
+		this['_level'] = level;
+
+		return this;
+	}
+
+}

@@ -1,0 +1,39 @@
+/**************************************************************
+*     ####         #                               #          * Jobuzzle - Copyright All rights reserved
+*     ####         #                               #          *
+*       ##  #####  ######  #     # ####### ####### #  #####   * @Author: revers
+*       ## #     # #     # #     #      #       #  # #     #  *
+*       ## #     # #     # #     #     #       #   # #     #  * @Date:   2015-09-30 13:03:28
+*       ## #     # #     # #     #    #       #    # #     #  *
+*       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
+*  ####### #     # #     # #     #  #       #      # #        *
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-09-30 13:04:57
+**************************************************************/
+
+class SkillLinkDataFieldsetForm extends LinkDataFieldsetForm {
+
+	public _formName = 'SkillLink';
+	public _createFormName = 'skilllink_data_create_form';
+	public _searchFormName = 'skilllink_data_search_form';
+	public _editFormName = 'skilllink_data_edit_form';
+
+	public _levelDisplay = undefined;
+
+	public getElementsDisplay : function () {
+		var elementsDisplay = _super();
+
+		elementsDisplay['level'] = this.getLevelDisplay();
+
+		return elementsDisplay;
+	}
+
+	public getLevelDisplay : function () {
+		if (!this['_levelDisplay']) {
+			this['_levelDisplay'] = {};
+			this['_levelDisplay']['type'] = 'Text';
+			this['_levelDisplay']['label'] = 'form.input.skill.level';
+		}
+		return this['_levelDisplay'];
+	}
+
+}
