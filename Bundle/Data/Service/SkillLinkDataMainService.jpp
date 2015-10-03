@@ -7,7 +7,7 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-09-30 13:07:45
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-03 01:34:26
 **************************************************************/
 
 class SkillLinkDataMainService extends LinkDataMainService {
@@ -21,6 +21,13 @@ class SkillLinkDataMainService extends LinkDataMainService {
 		if (entity)
 			return { url : entity.getId() };
 		return { url : '' };
+	}
+
+	public getElementEntity : function (id) {
+		var router = serviceLocator.get('Router');
+		var store = serviceLocator.get('ServiceManager').get('store_manager_main_service');
+
+		store.request(router.build('/skilllink/view', { 'skilllink_id' : id }));
 	}
 
 }
