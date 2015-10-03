@@ -7,23 +7,17 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-09-30 14:43:50
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-03 21:28:22
 **************************************************************/
 
 class SkillLinkDataTemplateTimelineView extends LinkDataTemplateTimelineView {
 
-	public getUrl : function () {
-		var router = serviceLocator.get('Router');
-
-		return router.build('/skilllink/view', {
-			skilllink_id : this.state['entity'].getId()
-		});
-	}
-
 	public display : function () {
 		var entity = this.state['entity'];
+		var level = Math.floor(entity.getLevel() / 100);
+		var percent = entity.getLevel() % 100;
 		return <div onClick={this.link} data-url={this.getUrl()}>
-			{entity.getId() +' : '+ entity.getType() +' | Owner Id -> '+ entity.getOwnerid() + ' | Owner State -> '+ entity.getOwnerstate() +' | Target id : '+ entity.getTargetid() +' | Target state : '+ entity.getTargetstate() +' | Level : '+ entity.getLevel() }
+			{entity.getTarget().getName() +' : level '+ level +'  | '+ percent +'%' } 
 		</div>;
 	}
 

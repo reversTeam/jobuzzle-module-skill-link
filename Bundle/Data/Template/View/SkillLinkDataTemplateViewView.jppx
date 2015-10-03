@@ -7,26 +7,12 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-09-30 13:15:36
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-03 22:45:59
 **************************************************************/
 
 class SkillLinkDataTemplateViewView extends LinkDataTemplateViewView {
 
 	public _class = 'skilllink';
 	public _elementType = 'SkillLink';
-
-	public getUrlEdit : function () {
-		var entity = this.state['entity'];
-		var router = serviceLocator.get('Router');
-		var url = '';
-
-		if (entity != undefined) {
-			url = router.build('/skilllink/view/update', {
-				'skilllink_id' : entity.getId()
-			});
-		}
-
-		return url;
-	}
 
 }
