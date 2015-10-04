@@ -7,11 +7,12 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-09-30 13:10:11
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-04 02:19:29
 **************************************************************/
 
 class SkillLinkDataTimelineTemplate extends LinkDataTimelineTemplate {
 
 	public _viewClassName = 'SkillLinkDataTemplateTimelineView';
+	public _type = 'SkillLink';
 
 }
