@@ -7,7 +7,7 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-09 18:48:46
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-09 21:21:59
 **************************************************************/
 
 div.percentBar {
@@ -16,6 +16,8 @@ div.percentBar {
 	background-color : white;
 	text-align: center;
 	position: relative;
+	overflow: hidden;
+	border-radius: 2px;
 	z-index: 1;
 
 	span.progressValue {

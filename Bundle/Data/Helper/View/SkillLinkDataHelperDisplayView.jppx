@@ -7,7 +7,7 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-09 18:50:19
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-09 20:18:13
 **************************************************************/
 
 class SkillLinkDataHelperDisplayView extends MasterHelperView {
@@ -37,18 +37,25 @@ class SkillLinkDataHelperDisplayView extends MasterHelperView {
 	}
 
 	displaySkillLinks : function (skillLinks) {
-		var keys = Object.keys(skillLinks);
+		var result = [];
+		var limit = this._template.getLimit();
+		var n = 0;
 
-		return keys.map(function (i) {
-			if (!skillLinks[i].getTarget())
-				return null;
-			var level = Math.round(skillLinks[i].getLevel() / 100);
-			var percent = skillLinks[i].getLevel() % 100;
+		for (var i in skillLinks) {
+			var skilllink = skillLinks[i];
+			if (!skilllink.getTarget())
+				continue ;
+			if (limit && limit < ++n)
+				break ;
+			var level = Math.round(skilllink.getLevel() / 100);
+			var percent = skilllink.getLevel() % 100;
 			var style = {
 				'width' : percent +'%'
 			};
-			return skillLinks[i].displayTimeline();
-		});
+			result.push(skilllink.displayTimeline());
+		}
+
+		return result;
 	}
  
 	display : function () {
