@@ -1,0 +1,61 @@
+/**************************************************************
+*     ####         #                               #          * Jobuzzle - Copyright All rights reserved
+*     ####         #                               #          *
+*       ##  #####  ######  #     # ####### ####### #  #####   * @Author: revers
+*       ## #     # #     # #     #      #       #  # #     #  *
+*       ## #     # #     # #     #     #       #   # #     #  * @Date:   2015-10-09 16:36:15
+*       ## #     # #     # #     #    #       #    # #     #  *
+*       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
+*  ####### #     # #     # #     #  #       #      # #        *
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-09 18:50:19
+**************************************************************/
+
+class SkillLinkDataHelperDisplayView extends MasterHelperView {
+
+	initialState : function () {
+		var states = {};
+
+		states['filters'] = this.getFilters();
+
+		return states;
+	}
+
+	getFilters = function () {
+		var self = this;
+		var store = serviceLocator.get('ServiceManager').get('store_manager_main_service');
+		var router = serviceLocator.get('Router');
+		var filterCollection = store.getCollection('Filter');
+		var entity = this._template.getEntity();
+
+		var filters = filterCollection.filterByParentEntityRoute(entity);
+
+		if (!Object.keys(filters).length) {
+			store.request(router.entityRouteForApi(entity, 'skilllink'));
+		}
+
+		return filters;
+	}
+
+	displaySkillLinks : function (skillLinks) {
+		var keys = Object.keys(skillLinks);
+
+		return keys.map(function (i) {
+			if (!skillLinks[i].getTarget())
+				return null;
+			var level = Math.round(skillLinks[i].getLevel() / 100);
+			var percent = skillLinks[i].getLevel() % 100;
+			var style = {
+				'width' : percent +'%'
+			};
+			return skillLinks[i].displayTimeline();
+		});
+	}
+ 
+	display : function () {
+		var filters = this.state['filters'];
+
+		return <div>
+			{this.displaySkillLinks(filters)}
+		</div>
+	}
+}

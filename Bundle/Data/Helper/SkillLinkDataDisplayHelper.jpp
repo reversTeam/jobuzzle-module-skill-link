@@ -3,20 +3,29 @@
 *     ####         #                               #          *
 *       ##  #####  ######  #     # ####### ####### #  #####   * @Author: revers
 *       ## #     # #     # #     #      #       #  # #     #  *
-*       ## #     # #     # #     #     #       #   # #     #  * @Date:   2015-09-30 13:08:30
+*       ## #     # #     # #     #     #       #   # #     #  * @Date:   2015-10-09 16:30:02
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-09 18:46:31
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-09 16:36:03
 **************************************************************/
 
-class SkillLinkDataSearchTemplate extends LinkDataSearchTemplate {
+class SkillLinkDataDisplayHelper extends MasterHelper {
 
-	public _viewClassName = 'SkillLinkDataTemplateSearchView';
-	public _serviceName = 'skilllink_data_main_service';
-	public _type = 'SkillLink';
-	public _route = 'skilllink';
+	_viewClassName = 'SkillLinkDataHelperDisplayView';
 
-	public _resizable = false;
+	initialize : function () {
+		_super();
+		this['_entity'] = undefined;
+	}
 
+	public getEntity : function () {
+		return this['_entity'];
+	}
+
+	public setEntity : function (entity) {
+		this['_entity'] = entity;
+
+		return this.entity;
+	}
 }
