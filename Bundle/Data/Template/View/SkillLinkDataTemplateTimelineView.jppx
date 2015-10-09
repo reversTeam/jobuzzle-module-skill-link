@@ -7,7 +7,7 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-03 21:28:22
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-09 18:47:38
 **************************************************************/
 
 class SkillLinkDataTemplateTimelineView extends LinkDataTemplateTimelineView {
@@ -16,8 +16,15 @@ class SkillLinkDataTemplateTimelineView extends LinkDataTemplateTimelineView {
 		var entity = this.state['entity'];
 		var level = Math.floor(entity.getLevel() / 100);
 		var percent = entity.getLevel() % 100;
+		var style = {
+			'width' : percent +'%'
+		};
 		return <div onClick={this.link} data-url={this.getUrl()}>
-			{entity.getTarget().getName() +' : level '+ level +'  | '+ percent +'%' } 
+			{entity.getTarget().getName() +' : lvl '+ level } 
+			<div className="percentBar">
+				<div className="progressBar" style={style}></div>
+				<span className="progressValue">{percent + '%'}</span>
+			</div>
 		</div>;
 	}
 
