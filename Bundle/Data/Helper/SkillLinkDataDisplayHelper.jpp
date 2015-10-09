@@ -7,7 +7,7 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-09 16:36:03
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-09 20:08:49
 **************************************************************/
 
 class SkillLinkDataDisplayHelper extends MasterHelper {
@@ -17,6 +17,17 @@ class SkillLinkDataDisplayHelper extends MasterHelper {
 	initialize : function () {
 		_super();
 		this['_entity'] = undefined;
+		this['_limit'] = undefined;
+	}
+
+	public getLimit : function () {
+		return this['_limit'];
+	}
+
+	public setLimit : function (limit) {
+		this['_limit'] = limit;
+
+		return this;
 	}
 
 	public getEntity : function () {
