@@ -7,7 +7,7 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-09 20:18:13
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-10 03:09:46
 **************************************************************/
 
 class SkillLinkDataHelperDisplayView extends MasterHelperView {
@@ -15,25 +15,33 @@ class SkillLinkDataHelperDisplayView extends MasterHelperView {
 	initialState : function () {
 		var states = {};
 
-		states['filters'] = this.getFilters();
+		states['entities'] = this.getFilters();
+		states['first'] = true;
 
 		return states;
 	}
 
 	getFilters = function () {
+		this._template.setReady(false);
 		var self = this;
 		var store = serviceLocator.get('ServiceManager').get('store_manager_main_service');
 		var router = serviceLocator.get('Router');
-		var filterCollection = store.getCollection('Filter');
+		var skillLinkCollection = store.getCollection('SkillLink');
 		var entity = this._template.getEntity();
 
-		var filters = filterCollection.filterByParentEntityRoute(entity);
+		var skillLink = skillLinkCollection.filterByParentEntityRoute(entity);
 
-		if (!Object.keys(filters).length) {
-			store.request(router.entityRouteForApi(entity, 'skilllink'));
+		if (!Object.keys(skillLink).length) {
+			store.request(router.entityRouteForApi(entity, 'skilllink'), {}, function (datas) {
+				self._template.setReady(true);
+				skillLink = skillLinkCollection.filterByParentEntityRoute(entity);
+				self.setState({ entities : skillLink });
+			});
+		} else {
+			this._template.setReady(true);
 		}
 
-		return filters;
+		return skillLink;
 	}
 
 	displaySkillLinks : function (skillLinks) {
@@ -59,10 +67,14 @@ class SkillLinkDataHelperDisplayView extends MasterHelperView {
 	}
  
 	display : function () {
-		var filters = this.state['filters'];
+		var entities = this.state['entities'];
+		var className = '';
 
-		return <div>
-			{this.displaySkillLinks(filters)}
+		if (this.state['first'])
+			className = 'animate';
+
+		return <div className={className}>
+			{this.displaySkillLinks(entities)}
 		</div>
 	}
 }

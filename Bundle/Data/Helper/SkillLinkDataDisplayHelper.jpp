@@ -7,17 +7,29 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-09 20:08:49
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-10 01:46:01
 **************************************************************/
 
 class SkillLinkDataDisplayHelper extends MasterHelper {
 
 	_viewClassName = 'SkillLinkDataHelperDisplayView';
+	_hasLoader = true;
 
 	initialize : function () {
 		_super();
 		this['_entity'] = undefined;
 		this['_limit'] = undefined;
+		this['_parent'] = undefined;
+	}
+
+	public getParent : function () {
+		return this['_parent'];
+	}
+
+	public setParent : function (parent) {
+		this['_parent'] = parent;
+
+		return this;
 	}
 
 	public getLimit : function () {
