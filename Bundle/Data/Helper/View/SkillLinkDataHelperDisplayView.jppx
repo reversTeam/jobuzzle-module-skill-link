@@ -7,7 +7,7 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-10 03:09:46
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-10 21:04:48
 **************************************************************/
 
 class SkillLinkDataHelperDisplayView extends MasterHelperView {
@@ -16,7 +16,6 @@ class SkillLinkDataHelperDisplayView extends MasterHelperView {
 		var states = {};
 
 		states['entities'] = this.getFilters();
-		states['first'] = true;
 
 		return states;
 	}
@@ -68,12 +67,8 @@ class SkillLinkDataHelperDisplayView extends MasterHelperView {
  
 	display : function () {
 		var entities = this.state['entities'];
-		var className = '';
 
-		if (this.state['first'])
-			className = 'animate';
-
-		return <div className={className}>
+		return <div className="skilllinkContent">
 			{this.displaySkillLinks(entities)}
 		</div>
 	}
