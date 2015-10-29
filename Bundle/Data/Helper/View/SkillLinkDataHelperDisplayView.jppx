@@ -7,7 +7,7 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-10 21:04:48
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-28 16:25:02
 **************************************************************/
 
 class SkillLinkDataHelperDisplayView extends MasterHelperView {
@@ -25,7 +25,7 @@ class SkillLinkDataHelperDisplayView extends MasterHelperView {
 		var self = this;
 		var store = serviceLocator.get('ServiceManager').get('store_manager_main_service');
 		var router = serviceLocator.get('Router');
-		var skillLinkCollection = store.getCollection('SkillLink');
+		var skillLinkCollection = store.getAll('SkillLink');
 		var entity = this._template.getEntity();
 
 		var skillLink = skillLinkCollection.filterByParentEntityRoute(entity);
@@ -52,13 +52,6 @@ class SkillLinkDataHelperDisplayView extends MasterHelperView {
 			var skilllink = skillLinks[i];
 			if (!skilllink.getTarget())
 				continue ;
-			if (limit && limit < ++n)
-				break ;
-			var level = Math.round(skilllink.getLevel() / 100);
-			var percent = skilllink.getLevel() % 100;
-			var style = {
-				'width' : percent +'%'
-			};
 			result.push(skilllink.displayTimeline());
 		}
 
