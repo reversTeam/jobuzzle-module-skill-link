@@ -7,7 +7,7 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-29 14:01:50
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-30 11:37:56
 **************************************************************/
 
 div.percentBar {
@@ -35,7 +35,7 @@ div.percentBar {
 	div.progressBar {
 		content : '';
 		height : 100%;
-		background-color: lighten($secondary_color, 8);
+		background-color: lighten($secondary_color, 30);
 		position: absolute;
 		top : 0px;
 		left : 0px;
