@@ -7,7 +7,7 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-03 18:25:12
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-11-03 17:27:23
 **************************************************************/
 
 class SkillLinkDataFieldsetForm extends LinkDataFieldsetForm {
@@ -19,12 +19,22 @@ class SkillLinkDataFieldsetForm extends LinkDataFieldsetForm {
 
 	public _levelDisplay = undefined;
 
+	public _levelInput = undefined;
+
 	public getElementsDisplay : function () {
 		var elementsDisplay = _super();
 
 		elementsDisplay['level'] = this.getLevelDisplay();
 
 		return elementsDisplay;
+	}
+
+	public getElementsInput : function () {
+		var elementsInput = _super();
+
+		elementsInput['level'] = this.getLevelInput();
+
+		return elementsInput;
 	}
 
 	public getLevelDisplay : function () {
@@ -34,6 +44,21 @@ class SkillLinkDataFieldsetForm extends LinkDataFieldsetForm {
 			this['_levelDisplay']['label'] = 'form.input.skilllink.level';
 		}
 		return this['_levelDisplay'];
+	}
+
+	public getLevelInput : function () {
+		if (this['_levelInput'] == undefined) {
+			this['_levelInput'] = {};
+
+			this['_levelInput']['required'] = false;
+
+			this['_levelInput']['filters'] = [];
+			this['_levelInput']['filters'][0] = {}
+			this['_levelInput']['filters'][0]['name'] = 'Trim';
+			this['_levelInput']['filters'][1] = {}
+			this['_levelInput']['filters'][1]['name'] = 'Int';
+		}
+		return this['_levelInput'];
 	}
 
 }
