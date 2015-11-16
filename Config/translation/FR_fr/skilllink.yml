@@ -7,9 +7,11 @@
 #       ## #     # #     # #     #    #       #    # #     #  #
 #       ## #     # #     # #     #   #       #     # ######   # @Last Modified by:   revers
 #  ####### #     # #     # #     #  #       #      # #        #
-#  ######   #####   ######  #####  ####### ####### # #######  # @Last Modified time: 2015-09-30 12:57:01
+#  ######   #####   ######  #####  ####### ####### # #######  # @Last Modified time: 2015-11-09 14:18:26
 ###############################################################
 
-SkillLinks: Lien de compétence
-view: '{{url}}'
-update: '{{url}}'
+page:
+	title:
+		SkillLinks: Lien de compétence
+		view: '{{url}}'
+		update: '{{url}}'

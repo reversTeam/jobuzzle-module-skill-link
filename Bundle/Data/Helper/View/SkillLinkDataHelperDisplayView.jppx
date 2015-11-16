@@ -7,7 +7,7 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-10-28 16:25:02
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-11-10 16:41:09
 **************************************************************/
 
 class SkillLinkDataHelperDisplayView extends MasterHelperView {
@@ -52,7 +52,9 @@ class SkillLinkDataHelperDisplayView extends MasterHelperView {
 			var skilllink = skillLinks[i];
 			if (!skilllink.getTarget())
 				continue ;
-			result.push(skilllink.displayTimeline());
+			result.push(<div key={i}>
+				{skilllink.displayTimeline()}
+			</div>);
 		}
 
 		return result;
