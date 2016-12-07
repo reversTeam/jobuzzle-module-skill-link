@@ -7,13 +7,12 @@
 *       ## #     # #     # #     #    #       #    # #     #  *
 *       ## #     # #     # #     #   #       #     # ######   * @Last Modified by:   revers
 *  ####### #     # #     # #     #  #       #      # #        *
-*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-09-30 13:09:14
+*  ######   #####   ######  #####  ####### ####### # #######  * @Last Modified time: 2015-11-21 14:50:40
 **************************************************************/
 
 class SkillLinkDataDeleteTemplate extends LinkDataDeleteTemplate {
 
 	public _viewClassName = 'SkillLinkDataTemplateDeleteView';
 	public _type = 'SkillLink';
-	public _route = 'skilllink';
 
 }
